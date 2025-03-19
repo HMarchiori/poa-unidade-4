@@ -1,4 +1,6 @@
-class Solution {
+package br.pucrs;
+
+public class Exercicio1 {
 
 
     public static void mergeSort(int[] nums, int index) {
@@ -6,12 +8,8 @@ class Solution {
         int med = index/2;
         int[] left = new int[med];
         int[] right = new int[index-med];
-        for (int i = 0; i < med; i++) {
-        left[i] = nums[i];
-        }
-        for (int i = med; i < index; i++) {
-            right[i - med] = nums[i];
-        }
+        System.arraycopy(nums, 0, left, 0, med);
+        if (index - med >= 0) System.arraycopy(nums, med, right, 0, index - med);
         mergeSort(left, med);
         mergeSort(right, index - med);
 
